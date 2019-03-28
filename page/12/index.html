@@ -67,9 +67,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-lnmp_org" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello_docker" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/11/05/lnmp_org/" class="article-date">
+    <a href="../../2018/11/05/hello_docker/" class="article-date">
   <time datetime="2018-11-04T16:00:00.000Z" itemprop="datePublished">2018-11-05</time>
 </a>
     
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/11/05/lnmp_org/">虚拟主机 VPS 一键安装LNMP教程</a>
+      <a class="article-title" href="../../2018/11/05/hello_docker/">Hello Docker 菜鸟笔记</a>
     </h1>
   
 
@@ -89,39 +89,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="远程登陆主机，可以ssh-或者-putty-xshell等"><a href="#远程登陆主机，可以ssh-或者-putty-xshell等" class="headerlink" title="远程登陆主机，可以ssh 或者 putty  xshell等"></a>远程登陆主机，可以ssh 或者 putty  xshell等</h3><pre><code>ssh root@144.202.95.95
-按提示输入密码,控制台 可以shift + insert 粘贴
-</code></pre><h3 id="先修改密码方便自己"><a href="#先修改密码方便自己" class="headerlink" title="先修改密码方便自己"></a>先修改密码方便自己</h3><pre><code>passwd
-</code></pre><h3 id="安装-tmux-后台服务和多窗口工具"><a href="#安装-tmux-后台服务和多窗口工具" class="headerlink" title="安装 tmux 后台服务和多窗口工具"></a>安装 tmux 后台服务和多窗口工具</h3><pre><code>apt-get  update
-apt-get install tmux
-</code></pre><h3 id="安装-LNMP-一键安装包，登陆-lnmp-org"><a href="#安装-LNMP-一键安装包，登陆-lnmp-org" class="headerlink" title="安装 LNMP 一键安装包，登陆 lnmp.org"></a>安装 LNMP 一键安装包，登陆 lnmp.org</h3><ul>
-<li><p>或者直接到这个URL，选择配置自动安装脚本</p>
-<p>  <a href="https://lnmp.org/auto.html" target="_blank" rel="noopener">https://lnmp.org/auto.html</a></p>
+        <h3 id="可以直接运行官方的安装脚本一键安装"><a href="#可以直接运行官方的安装脚本一键安装" class="headerlink" title="可以直接运行官方的安装脚本一键安装"></a>可以直接运行官方的安装脚本一键安装</h3><ul>
+<li><p>执行脚本方法如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">curl -sSL http<span class="variable">s:</span>//<span class="built_in">get</span>.docker.<span class="keyword">com</span>/ | <span class="keyword">sh</span></span><br><span class="line"># 或者</span><br><span class="line">wget -qO- <span class="built_in">get</span>.docker.<span class="keyword">com</span> | bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后，运行下面的命令，验证是否安装成功。<br>  docker version </p>
+</li>
+<li><p>启动 Docker<br>  systemctl start docker </p>
+</li>
+<li><p>查看 Docker 启动状态<br>  systemctl status docker</p>
+</li>
+<li><p>允许 Docker 开机自启<br>  systemctl enable docker </p>
 </li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">wget http:<span class="comment">//soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz &amp;&amp; \</span></span><br><span class="line">tar zxf lnmp1.<span class="number">5</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> &amp;&amp; cd lnmp1.<span class="number">5</span> &amp;&amp; \</span><br><span class="line">LNMP_Auto=<span class="string">"y"</span> DBSelect=<span class="string">"2"</span> DB_Root_Password=<span class="string">"lnmp.org"</span> \</span><br><span class="line">InstallInnodb=<span class="string">"y"</span> PHPSelect=<span class="string">"5"</span> SelectMalloc=<span class="string">"1"</span> ./install<span class="selector-class">.sh</span> lnmp</span><br></pre></td></tr></table></figure>
-<h3 id="后台安装方法"><a href="#后台安装方法" class="headerlink" title="后台安装方法"></a>后台安装方法</h3><ol>
-<li>先输入命令 tmux ，开启后台服务管理进程</li>
-<li>shift + insert 粘贴 把lnmp安装脚本，然后就可以默认安装了</li>
-<li>可以直接关闭远程登陆软件，vps会自己安装了</li>
-<li>安装都是下载源码编译，要不少时间，可以 tmux a 接入上去查看</li>
-</ol>
-<h3 id="安装好-lnmp-后控制台输入-lnmp管理"><a href="#安装好-lnmp-后控制台输入-lnmp管理" class="headerlink" title="安装好 lnmp 后控制台输入 lnmp管理"></a>安装好 lnmp 后控制台输入 lnmp管理</h3><figure class="highlight coq"><table><tr><td class="code"><pre><span class="line">root@<span class="number">568315379</span>:~/lnmp1<span class="number">.5</span># lnmp</span><br><span class="line">+-------------------------------------------+</span><br><span class="line">|    <span class="type">Manager</span> <span class="keyword">for</span> LNMP, Written <span class="built_in">by</span> Licess    |<span class="type"></span></span><br><span class="line"><span class="type">+-------------------------------------------+</span></span><br><span class="line"><span class="type">|              https</span>://lnmp.org             |<span class="type"></span></span><br><span class="line"><span class="type">+-------------------------------------------+</span></span><br><span class="line"><span class="type">Usage</span>: lnmp &#123;start|<span class="type">stop</span>|<span class="type">reload</span>|<span class="type">restart</span>|<span class="type">kill</span>|<span class="type">status</span>&#125;</span><br><span class="line">Usage: lnmp &#123;nginx|<span class="type">mysql</span>|<span class="type">mariadb</span>|<span class="type">php</span>-fpm|<span class="type">pureftpd</span>&#125; &#123;start|<span class="type">stop</span>|<span class="type">reload</span>|<span class="type">restart</span>|<span class="type">kill</span>|<span class="type">status</span>&#125;</span><br><span class="line">Usage: lnmp vhost &#123;add|<span class="type">list</span>|<span class="type">del</span>&#125;</span><br><span class="line">Usage: lnmp database &#123;add|<span class="type">list</span>|<span class="type">edit</span>|<span class="type">del</span>&#125;</span><br><span class="line">Usage: lnmp ftp &#123;add|<span class="type">list</span>|<span class="type">edit</span>|<span class="type">del</span>|<span class="type">show</span>&#125;</span><br><span class="line">Usage: lnmp ssl add</span><br><span class="line">Usage: lnmp &#123;dnsssl|<span class="type">dns</span>&#125; &#123;cx|<span class="type">ali</span>|<span class="type">cf</span>|<span class="type">dp</span>|<span class="type">he</span>|<span class="type">gd</span>|<span class="type">aws</span>&#125;</span><br><span class="line">root@<span class="number">568315379</span>:~/lnmp1<span class="number">.5</span>#</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>lnmp 安装好后，最好安装下 pureftpd 服务，lnmp 可以管理ftp帐号</p>
-<pre><code>./pureftpd.sh
-</code></pre></li>
-<li>lnmp 可以  Usage: lnmp ftp {add|list|edit|del|show} 管理ftp帐号</li>
-</ul>
-<h3 id="LNMP-建立虚拟主机-，管理-www-xxx-net-主页"><a href="#LNMP-建立虚拟主机-，管理-www-xxx-net-主页" class="headerlink" title="LNMP 建立虚拟主机 ，管理 www.xxx.net 主页"></a>LNMP 建立虚拟主机 ，管理 <a href="http://www.xxx.net" target="_blank" rel="noopener">www.xxx.net</a> 主页</h3><pre><code>lnmp vhost add 
-</code></pre>
+<h1 id="使用DOCKER安装PORTAINER"><a href="#使用DOCKER安装PORTAINER" class="headerlink" title="使用DOCKER安装PORTAINER"></a>使用DOCKER安装PORTAINER</h1><p><a href="https://portainer.io/install.html" target="_blank" rel="noopener">https://portainer.io/install.html</a><br>Portainer在Docker引擎或Swarm集群上作为轻量级Docker容器（Docker映像权重小于4MB）运行。因此，在使用Docker的任何计算机上运行容器都是一个命令。</p>
+<h3 id="部署PORTAINER"><a href="#部署PORTAINER" class="headerlink" title="部署PORTAINER"></a>部署PORTAINER</h3><p>使用以下Docker命令部署Portainer：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">$ docker volume create portainer_data</span><br><span class="line">$ docker run -d -<span class="selector-tag">p</span> <span class="number">9000</span>:<span class="number">9000</span> -v /var/run/docker<span class="selector-class">.sock</span>:/var/run/docker<span class="selector-class">.sock</span> -v portainer_data:/data portainer/portainer</span><br></pre></td></tr></table></figure></p>
+<h3 id="另一个别人-app-模版的PORTAINER-镜像使用"><a href="#另一个别人-app-模版的PORTAINER-镜像使用" class="headerlink" title="另一个别人 app 模版的PORTAINER 镜像使用"></a>另一个别人 app 模版的PORTAINER 镜像使用</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">mkdir -<span class="selector-tag">p</span> /opt/portainer/local-certs /opt/portainer/data</span><br><span class="line"></span><br><span class="line">cd /opt/portainer/local-certs</span><br><span class="line">openssl genrsa -out portainer<span class="selector-class">.key</span> <span class="number">2048</span></span><br><span class="line">openssl ecparam -genkey -name secp384r1 -out portainer.key</span><br><span class="line">openssl req -new -x509 -sha256 -key portainer<span class="selector-class">.key</span> -out portainer<span class="selector-class">.crt</span> -days <span class="number">3650</span></span><br><span class="line"></span><br><span class="line">docker run -d -<span class="selector-tag">p</span> <span class="number">9000</span>:<span class="number">9000</span> -v /opt/portainer/data:/data -v /opt/portainer/local-certs:/certs -v /var/run                                                                                      /docker<span class="selector-class">.sock</span>:/var/run/docker<span class="selector-class">.sock</span> --<span class="selector-tag">label</span> owner=portainer --name ui --restart=always lihaixin/portainer -l owne                                                                                      r=portainer --ssl --sslcert /certs/portainer<span class="selector-class">.crt</span> --sslkey /certs/portainer.key</span><br></pre></td></tr></table></figure>
+<h2 id="使用-Dockerfile-定制镜像-有空学习"><a href="#使用-Dockerfile-定制镜像-有空学习" class="headerlink" title="使用 Dockerfile 定制镜像  有空学习"></a>使用 Dockerfile 定制镜像  有空学习</h2><p><a href="https://yeasy.gitbooks.io/docker_practice/image/build.html" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/image/build.html</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2018/11/05/lnmp_org/" data-id="cjtspm4kq001tisftbtfbb9sl" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2018/11/05/hello_docker/" data-id="cjtss7k8r001f1gftg0q95b21" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/vps/">vps</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/vps/">vps</a></li></ul>
 
     </footer>
   </div>

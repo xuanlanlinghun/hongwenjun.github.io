@@ -67,9 +67,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-tmux_for_window" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ffmpeg_gif2mp4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/10/10/tmux_for_window/" class="article-date">
+    <a href="../../2018/10/10/ffmpeg_gif2mp4/" class="article-date">
   <time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished">2018-10-10</time>
 </a>
     
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/10/10/tmux_for_window/">tmux_for_windows可以在Git-Bash下使用</a>
+      <a class="article-title" href="../../2018/10/10/ffmpeg_gif2mp4/">使用FFMPEG把gif转换到MP4格式方便上传</a>
     </h1>
   
 
@@ -90,26 +90,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>蘭雅sRGB 龙芯小本服务器 | <a href="http://sRGB.vicp.net">sRGB.vicp.net</a></p>
-<h1 id="tmux-for-windows"><a href="#tmux-for-windows" class="headerlink" title="tmux_for_windows"></a>tmux_for_windows</h1><p>tmux是一个开源工具，用于在一个终端窗口中运行多个终端会话。本工具从msys2里提取，可以在Git for Windows的Git Bash (MingW64)下正常使用。</p>
-<h3 id="首先你要保证已经安装有-Git-for-Windows"><a href="#首先你要保证已经安装有-Git-for-Windows" class="headerlink" title="首先你要保证已经安装有 Git for Windows"></a>首先你要保证已经安装有 Git for Windows</h3><p>下载地址 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
-<h3 id="tmux-for-Git-Bash-MingW64-安装包使用"><a href="#tmux-for-Git-Bash-MingW64-安装包使用" class="headerlink" title="tmux for Git Bash (MingW64) 安装包使用"></a>tmux for Git Bash (MingW64) 安装包使用</h3><ul>
-<li>下载  <a href="https://github.com/hongwenjun/tmux_for_windows/raw/master/tmux_for_git-bash.zip" target="_blank" rel="noopener">tmux_for_git-bash.zip</a></li>
-<li>释放文件到 D:\Git</li>
-<li>实际可执行文件在 D:\Git\usr\bin\tmux.exe<h3 id="tmux-使用"><a href="#tmux-使用" class="headerlink" title="tmux 使用"></a>tmux 使用</h3></li>
-<li>Windows 开始菜单 运行 D:\Git\git-bash.exe</li>
-<li>命令行输入 tmux</li>
-</ul>
-<h3 id="原始的-tmux-for-msys2-的安装包，不需要下载"><a href="#原始的-tmux-for-msys2-的安装包，不需要下载" class="headerlink" title="原始的 tmux for msys2 的安装包，不需要下载"></a>原始的 tmux for msys2 的安装包，不需要下载</h3><p>  tmux-2.7-1-x86_64.pkg.tar.xz</p>
-<p>  libevent-2.1.8-1-x86_64.pkg.tar.xz</p>
-<p><img src="https://raw.githubusercontent.com/hongwenjun/tmux_for_windows/master/tmux_for_windows.png" alt></p>
-
+<p><img src="/webp/gif2mp4.webp" alt></p>
+<h3 id="使用FFMPEG把gif转换到MP4格式方便上传"><a href="#使用FFMPEG把gif转换到MP4格式方便上传" class="headerlink" title="使用FFMPEG把gif转换到MP4格式方便上传"></a>使用FFMPEG把gif转换到MP4格式方便上传</h3><p><a href="https://youtu.be/EN7QLAhJrEo" target="_blank" rel="noopener">https://youtu.be/EN7QLAhJrEo</a></p>
+<h3 id="gif-视频使用GifCam录制成640x360，转换后为720P-1280x720"><a href="#gif-视频使用GifCam录制成640x360，转换后为720P-1280x720" class="headerlink" title="gif 视频使用GifCam录制成640x360，转换后为720P (1280x720)"></a>gif 视频使用GifCam录制成640x360，转换后为720P (1280x720)</h3><pre><code>ffmpeg   -i  a.gif   -s 1280x720  new.mp4
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2018/10/10/tmux_for_window/" data-id="cjtspm4la002cisftx1sfjtiv" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2018/10/10/ffmpeg_gif2mp4/" data-id="cjtss7k7z000t1gft2fghyeoe" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/vim/">vim</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ffmpeg/">ffmpeg</a></li></ul>
 
     </footer>
   </div>

@@ -67,9 +67,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-shadowsocks" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-crash_course_computer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/05/21/shadowsocks/" class="article-date">
+    <a href="../../2018/05/21/crash_course_computer/" class="article-date">
   <time datetime="2018-05-20T16:00:00.000Z" itemprop="datePublished">2018-05-21</time>
 </a>
     
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/05/21/shadowsocks/">shadowsocks 客户端安装</a>
+      <a class="article-title" href="../../2018/05/21/crash_course_computer/">计算机科学速成课_中文字幕</a>
     </h1>
   
 
@@ -90,81 +90,89 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>蘭雅sRGB 龙芯小本服务器 | <a href="http://sRGB.vicp.net">sRGB.vicp.net</a></p>
-<h1 id="手机下载安装"><a href="#手机下载安装" class="headerlink" title="手机下载安装"></a>手机下载安装</h1><p>shadowsocks android手机 <a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">下载地址</a></p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-android/releases</a></p>
-<p>安装后，填实际的帐号参数</p>
-<pre><code>服务器：188.188.188.188
-端口：2018
-密码：teddysun.com
-加密方式：aes-256-cfb
-</code></pre><h3 id="苹果手机使用app可以选用免费的-wingy"><a href="#苹果手机使用app可以选用免费的-wingy" class="headerlink" title="苹果手机使用app可以选用免费的 wingy"></a>苹果手机使用app可以选用免费的 wingy</h3><hr>
-<h1 id="Shadowsocks-Windows-使用说明-转"><a href="#Shadowsocks-Windows-使用说明-转" class="headerlink" title="Shadowsocks Windows 使用说明(转)"></a>Shadowsocks Windows 使用说明(转)</h1><p><a href="https://github.com/shadowsocks/shadowsocks-windows/wiki" target="_blank" rel="noopener">原文</a></p>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
-<li>系统代理设置</li>
-<li>PAC 模式和全局模式</li>
-<li><a href="https://github.com/gfwlist/gfwlist" target="_blank" rel="noopener">GFWList</a> 和用户规则</li>
-<li>支持 HTTP 代理</li>
-<li>支持多服务器切换</li>
-<li>支持 UDP 代理</li>
-<li>支持插件</li>
-</ol>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>下载 <a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">最新版</a>。</p>
-<p>需要安装 <a href="https://www.microsoft.com/zh-CN/download/details.aspx?id=53344" target="_blank" rel="noopener">.NET Framework 4.6.2</a> 和 Microsoft <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53840" target="_blank" rel="noopener">Visual C++ 2015 Redistributable</a> (x86)</p>
-<p>从 2.5.8 开始你可以在 Releases 页面找到 exe 文件的 hash 值，你可以使用 <a href="https://support.microsoft.com/en-us/kb/841290" target="_blank" rel="noopener">fciv</a> 等工具 校验 <code>Shadowsocks.exe</code> 文件. 例如 <code>fciv.exe -both -add Shadowsocks.exe</code></p>
-<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><ol>
-<li>在任务栏找到 Shadowsocks 图标</li>
-<li>在 服务器 菜单添加多个服务器</li>
-<li>选择 <code>启用系统代理</code> 来启用系统代理。请禁用浏览器里的代理插件，或把它们设置为使用系统代理。</li>
-<li>除了设为系统代理，你也可以直接自己配置浏览器代理。在 <a href="https://github.com/FelisCatus/SwitchyOmega" target="_blank" rel="noopener">SwitchyOmega</a> 中把代理设置为 SOCKS5 或 HTTP 的 127.0.0.1:1080。这个 1080 端口可以在服务器设置中设置。</li>
-</ol>
-<h4 id="PAC"><a href="#PAC" class="headerlink" title="PAC"></a>PAC</h4><ol>
-<li>可以编辑 PAC 文件来修改 PAC 设置。Shadowsocks 会监听文件变化，修改后会自动生效。</li>
-<li>你也可以从 <a href="https://github.com/gfwlist/gfwlist" target="_blank" rel="noopener">GFWList</a> （由第三方维护）更新 PAC 文件。</li>
-<li>你也可以使用在线 PAC URL</li>
-</ol>
-<h4 id="服务器自动切换"><a href="#服务器自动切换" class="headerlink" title="服务器自动切换"></a>服务器自动切换</h4><ol>
-<li>负载均衡：随机选择服务器</li>
-<li>高可用：根据延迟和丢包率自动选择服务器</li>
-<li>累计丢包率：通过定时 ping 来测速和选择。如果要使用本功能，请打开菜单里的<code>统计可用性</code>。</li>
-<li>也可以实现 IStrategy 接口来自定义切换规则，然后给我们发一个 pull request。</li>
-</ol>
-<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><p>对于 UDP，请使用 SocksCap 或 ProxyCap 强制你想使用的程序走代理。</p>
-<h4 id="多实例"><a href="#多实例" class="headerlink" title="多实例"></a>多实例</h4><p>如果想使用其它工具如 <a href="https://github.com/FelisCatus/SwitchyOmega" target="_blank" rel="noopener">SwitchyOmega</a> 管理多个服务器，可以启动多个 Shadowsocks。<br>为了避免配置产生冲突，把 Shadowsocks 复制到一个新目录里，并给它设置一个新的本地端口。</p>
-<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><p>若想通过插件来连接服务器，请到编辑服务器界面填入插件程序（相对路径或绝对路径）</p>
-<p><em>注意：</em> 在启用插件后，正向代理会被停用。</p>
-<h4 id="全局快捷键"><a href="#全局快捷键" class="headerlink" title="全局快捷键"></a>全局快捷键</h4><p>如果重启 Shadowsocks 则必须<strong>重新注册</strong>，因为此时环境可能发生变化，而且如果多开 Shadowsocks 则需要为后来启动的实例设置不同的快捷键。</p>
-<h5 id="怎样键入快捷键"><a href="#怎样键入快捷键" class="headerlink" title="怎样键入快捷键?"></a>怎样键入快捷键?</h5><ol>
-<li>点击想要设置的快捷键文本框。</li>
-<li>按下想要设置的组合键。</li>
-<li>当满足要求时释放全部按键。</li>
-<li>这时你输入的快捷键字符会出现在文本框中。</li>
-</ol>
-<h5 id="如何修改快捷键"><a href="#如何修改快捷键" class="headerlink" title="如何修改快捷键?"></a>如何修改快捷键?</h5><ol>
-<li>点击想要设置的快捷键文本框。</li>
-<li>按下 BackSpace（退格键）清除文本框内容。</li>
-<li>重新键入新的组合键。</li>
-</ol>
-<h5 id="如何取消激活"><a href="#如何取消激活" class="headerlink" title="如何取消激活?"></a>如何取消激活?</h5><ol>
-<li>清除你想要取消激活快捷键的文本框内容，如果想要取消全部，则清除全部文本框中的内容。</li>
-<li>点击确认按钮。</li>
-</ol>
-<h5 id="标签背景色含义"><a href="#标签背景色含义" class="headerlink" title="标签背景色含义"></a>标签背景色含义</h5><ul>
-<li>绿色: 此组合键未被其他程序占用，并且成功注册到系统里。</li>
-<li>黄色: 此组合键已被其他程序占用，你需要更换其他组合。</li>
-<li>透明无色: 初始状态</li>
+<h2 id="计算机科学速成课-fire-40集完结撒花-转"><a href="#计算机科学速成课-fire-40集完结撒花-转" class="headerlink" title="计算机科学速成课 :fire: 40集完结撒花(转)"></a>计算机科学速成课 :fire: 40集完结撒花(转)</h2><p><a href="https://github.com/1c7/crash-course-computer-science-chinese" target="_blank" rel="noopener">原文</a></p>
+<h3 id="精校版（推荐）："><a href="#精校版（推荐）：" class="headerlink" title="精校版（推荐）："></a>精校版（推荐）：</h3><p><a href="https://www.bilibili.com/video/av21376839/" target="_blank" rel="noopener">https://www.bilibili.com/video/av21376839/</a><br><img src="https://github.com/1c7/crash-course-computer-science-chinese/raw/master/image/cs40.jpg" alt="bilibili">    </p>
+<h3 id="1-感谢所有翻译人员！"><a href="#1-感谢所有翻译人员！" class="headerlink" title="1. 感谢所有翻译人员！"></a>1. 感谢所有翻译人员！</h3><ul>
+<li>不想膨胀的小R - <a href="https://github.com/coolralf" target="_blank" rel="noopener">Github</a>, <a href="https://weibo.com/u/2207493917" target="_blank" rel="noopener">微博</a>, <a href="https://space.bilibili.com/5385034#!/video" target="_blank" rel="noopener">B站</a></li>
+<li>糖醋陈皮 - <a href="https://github.com/1c7" target="_blank" rel="noopener">Github</a>, <a href="https://weibo.com/2004104451" target="_blank" rel="noopener">微博</a>, <a href="http://1c7.me/" target="_blank" rel="noopener">博客</a></li>
+<li>ZireHao - <a href="http://space.bilibili.com/27167876/" target="_blank" rel="noopener">B站</a>     </li>
+<li>gilot - <a href="https://space.bilibili.com/43595622/" target="_blank" rel="noopener">B站</a></li>
+<li>晴空</li>
+<li>Crazycat</li>
+<li>Cindy</li>
+<li>出门去</li>
+<li>TMC - RN</li>
+<li>LCAR979（推特 <code>_lincr_</code>）  </li>
 </ul>
-<h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><p>请访问 <a href="https://github.com/shadowsocks/shadowsocks/wiki/Ports-and-Clients#linux--server-side" target="_blank" rel="noopener">服务器</a> 获取更多信息。</p>
-<h4 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h4><p>需要 <a href="https://www.visualstudio.com/downloads/" target="_blank" rel="noopener">Visual Studio 2015</a> 或更高版本并安装 <a href="https://www.microsoft.com/download/details.aspx?id=53321" target="_blank" rel="noopener">.NET Framework 4.6.2 Developer Pack</a>。</p>
-<h4 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h4><p><a href="https://github.com/shadowsocks/shadowsocks-windows/blob/master/LICENSE.txt" target="_blank" rel="noopener">GPLv3</a></p>
-<h4 id="项目所使用到的第三方开源组件-库"><a href="#项目所使用到的第三方开源组件-库" class="headerlink" title="项目所使用到的第三方开源组件/库"></a>项目所使用到的第三方开源组件/库</h4><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">Caseless.Fody (MIT)    <span class="string">https:</span><span class="comment">//github.com/Fody/Caseless</span></span><br><span class="line">Costura.Fody (MIT)     <span class="string">https:</span><span class="comment">//github.com/Fody/Costura</span></span><br><span class="line">Fody (MIT)             <span class="string">https:</span><span class="comment">//github.com/Fody/Fody</span></span><br><span class="line">GlobalHotKey (GPLv3)   <span class="string">https:</span><span class="comment">//github.com/kirmir/GlobalHotKey</span></span><br><span class="line">Newtonsoft.Json (MIT)  <span class="string">https:</span><span class="comment">//www.newtonsoft.com/json</span></span><br><span class="line">StringEx.CS ()         <span class="string">https:</span><span class="comment">//github.com/LazyMode/StringEx</span></span><br><span class="line">ZXing.Net (Apache <span class="number">2.0</span>) <span class="string">https:</span><span class="comment">//github.com/micjahn/ZXing.Net</span></span><br><span class="line"></span><br><span class="line">libsscrypto (GPLv2)    <span class="string">https:</span><span class="comment">//github.com/shadowsocks/libsscrypto</span></span><br><span class="line">Privoxy (GPLv2)        <span class="string">https:</span><span class="comment">//www.privoxy.org</span></span><br><span class="line">Sysproxy ()            <span class="string">https:</span><span class="comment">//github.com/Noisyfox/sysproxy</span></span><br></pre></td></tr></table></figure>
+<h3 id="第一版："><a href="#第一版：" class="headerlink" title="第一版："></a>第一版：</h3><ul>
+<li>1 - <a href="https://www.bilibili.com/video/av8861057/" target="_blank" rel="noopener">早期的计算 - Early Computing</a></li>
+<li>2 - <a href="https://www.bilibili.com/video/av9066628/" target="_blank" rel="noopener">电子计算 - Electronic Computing</a></li>
+<li>3 - <a href="https://www.bilibili.com/video/av11557339/" target="_blank" rel="noopener">布尔逻辑与逻辑电路 - Boolean Logic &amp; Logic Gates</a></li>
+<li>4 - <a href="https://www.bilibili.com/video/av11592079/" target="_blank" rel="noopener">二进制 - Representing Numbers and Letters with Binary</a></li>
+<li>5 - <a href="https://www.bilibili.com/video/av12742941/" target="_blank" rel="noopener">算术逻辑单元 - How Computers Calculate - the ALU</a></li>
+<li>6 - <a href="https://www.bilibili.com/video/av12881796/" target="_blank" rel="noopener">寄存器 &amp; 内存 - Registers and RAM</a></li>
+<li>7 - <a href="https://www.bilibili.com/video/av12881976/" target="_blank" rel="noopener">中央处理器 - The Central Processing Unit(CPU)</a></li>
+<li>8 - <a href="https://www.bilibili.com/video/av9875360/" target="_blank" rel="noopener">指令和程序 - Instructions &amp; Programs</a></li>
+<li>9 -  <a href="https://www.bilibili.com/video/av11867964/" target="_blank" rel="noopener">高级 CPU 设计 - Advanced CPU Designs</a></li>
+<li>10 - <a href="https://www.bilibili.com/video/av13582556/" target="_blank" rel="noopener">编程史话 - Early Programming</a></li>
+<li>11 - <a href="https://www.bilibili.com/video/av14228148/" target="_blank" rel="noopener">编程语言 - The First Programming Languages</a></li>
+<li>12 - <a href="https://www.bilibili.com/video/av14885759/" target="_blank" rel="noopener">编程原理：语句和函数 - Programming Basics: Statements &amp; Functions</a></li>
+<li>13 - <a href="https://www.bilibili.com/video/av15987761/" target="_blank" rel="noopener">算法初步 - Intro to Algorithms</a></li>
+<li>14 - <a href="https://www.bilibili.com/video/av15987774/" target="_blank" rel="noopener">数据结构 - Data Structures</a></li>
+<li>15 - <a href="https://www.bilibili.com/video/av16090115/" target="_blank" rel="noopener">阿兰·图灵 - Alan Turing</a></li>
+<li>16 - <a href="https://www.bilibili.com/video/av16751202/" target="_blank" rel="noopener">软件工程 - Software Engineering</a></li>
+<li>17 - <a href="https://www.bilibili.com/video/av17186768" target="_blank" rel="noopener">集成电路、摩尔定律 - Integrated Circuits &amp; Moore’s Law</a></li>
+<li>18 - <a href="https://www.bilibili.com/video/av17192468" target="_blank" rel="noopener">操作系统 - Operating Systems</a></li>
+<li>19 - <a href="https://www.bilibili.com/video/av17192483/" target="_blank" rel="noopener">内存 &amp; 储存介质 - Memory &amp; Storage</a></li>
+<li>20 - <a href="https://www.bilibili.com/video/av17209268/" target="_blank" rel="noopener">文件系统 - Files &amp; File Systems</a></li>
+<li>21 - <a href="https://www.bilibili.com/video/av17192511/" target="_blank" rel="noopener">压缩 - Compression</a></li>
+<li>22 - <a href="https://www.bilibili.com/video/av17451718/" target="_blank" rel="noopener">命令行界面 - Keyboards &amp; Command Line Interfaces</a></li>
+<li>23 - <a href="https://www.bilibili.com/video/av17476087/" target="_blank" rel="noopener">屏幕 &amp; 2D 图形显示 - Screens &amp; 2D Graphics</a></li>
+<li>24 - <a href="https://www.bilibili.com/video/av15637307/" target="_blank" rel="noopener">冷战和消费主义 - The Cold War and Consumerism</a></li>
+<li>25 - <a href="https://www.bilibili.com/video/av18789303/" target="_blank" rel="noopener">个人计算机革命 - The Personal Computer Revolution</a></li>
+<li>26 - <a href="https://www.bilibili.com/video/av19035296/" target="_blank" rel="noopener">图形用户界面 - Graphical User Interfaces</a></li>
+<li>27 - <a href="https://www.bilibili.com/video/av19164942/" target="_blank" rel="noopener">3D 图形 - 3D Graphics</a></li>
+<li>28 - <a href="https://www.bilibili.com/video/av19209394/" target="_blank" rel="noopener">计算机网络 - Computer Networks</a></li>
+<li>29 - <a href="https://www.bilibili.com/video/av20716104/" target="_blank" rel="noopener">互联网 - The Internet</a></li>
+<li>30 - <a href="https://www.bilibili.com/video/av20767130/" target="_blank" rel="noopener">万维网 - The World Wide Web</a></li>
+<li>31 - <a href="https://www.bilibili.com/video/av20785456/" target="_blank" rel="noopener">网络安全 - Cybersecurity</a></li>
+<li>32 - <a href="https://www.bilibili.com/video/av20831479/" target="_blank" rel="noopener">黑客与攻击 - Hackers &amp; Cyber Attacks</a></li>
+<li>33 - <a href="https://www.bilibili.com/video/av20882310/" target="_blank" rel="noopener">加密 - Cryptography</a></li>
+<li>34 - <a href="https://www.bilibili.com/video/av20922906" target="_blank" rel="noopener">机器学习与人工智能 - Machine Learning &amp; Artificial Intelligence</a></li>
+<li>35 - <a href="https://www.bilibili.com/video/av20974735" target="_blank" rel="noopener">计算机视觉 - Computer Vision</a></li>
+<li>36 - <a href="https://www.bilibili.com/video/av21004070" target="_blank" rel="noopener">自然语言处理 - Natural Language Processing</a></li>
+<li>37 - <a href="https://www.bilibili.com/video/av21043523" target="_blank" rel="noopener">机器人 - Robots</a></li>
+<li>38 - <a href="https://www.bilibili.com/video/av21066931" target="_blank" rel="noopener">计算机中的心理学 - Psychology of Computing</a></li>
+<li>39 - <a href="https://www.bilibili.com/video/av21103744" target="_blank" rel="noopener">教育型科技 - Educational Technology</a></li>
+<li>40 - <a href="https://www.bilibili.com/video/av21126704" target="_blank" rel="noopener">(完结) 奇点，天网，计算机的未来 - The Singularity, Skynet, and the Future of Computing</a>      </li>
+</ul>
+<p>精校版质量更好，建议看精校版，之所以第一版目录不删：      </p>
+<ol>
+<li>方便快速扫视，看都聊什么话题     </li>
+<li>方便翻阅之前的版本（如果有需要）        </li>
+</ol>
+<p>备注：精校负责人是 @糖醋陈皮</p>
+<h3 id="2-翻译时间"><a href="#2-翻译时间" class="headerlink" title="2. 翻译时间"></a>2. 翻译时间</h3><p>英文版：<br>第 1 集发布： 2017年2月22号<br>第 40 集发布：2017年12月21号     </p>
+<p>中文版：<br>第 1 集发布：  2017年2月27号<br>全 40 集翻译完成：2018年3月24号<br>全 40 集精校完成：2018年5月1号  </p>
+<h3 id="2-原视频"><a href="#2-原视频" class="headerlink" title="2. 原视频"></a>2. 原视频</h3><p><a href="https://www.youtube.com/playlist?list=PLME-KWdxI8dcaHSzzRsNuOLXtM2Ep_C7a" target="_blank" rel="noopener">Youtube - Crash Course Computer Science Playlist</a><br><img src="https://github.com/1c7/crash-course-computer-science-chinese/raw/master/image/english.png" alt="Crash Course CS screenshoht">       </p>
+<h1 id="Thank-you-Crash-Course-amp-Carrie-Anne"><a href="#Thank-you-Crash-Course-amp-Carrie-Anne" class="headerlink" title="Thank you Crash Course &amp; Carrie Anne!"></a>Thank you Crash Course &amp; Carrie Anne!</h1><ul>
+<li>Patron support Crash Course：<a href="https://www.patreon.com/crashcourse" target="_blank" rel="noopener">https://www.patreon.com/crashcourse</a>  <br></li>
+<li>Crash Course website：<a href="https://thecrashcourse.com/" target="_blank" rel="noopener">https://thecrashcourse.com/</a></li>
+<li>Youtube Crash Course: <a href="https://www.youtube.com/user/crashcourse" target="_blank" rel="noopener">https://www.youtube.com/user/crashcourse</a></li>
+</ul>
+<h1 id="感谢速成课！感谢-Carrie-Anne！"><a href="#感谢速成课！感谢-Carrie-Anne！" class="headerlink" title="感谢速成课！感谢 Carrie Anne！"></a>感谢速成课！感谢 Carrie Anne！</h1><ul>
+<li>Patron 支持 Crash Course：<a href="https://www.patreon.com/crashcourse" target="_blank" rel="noopener">https://www.patreon.com/crashcourse</a>  <br></li>
+<li>Crash Course 官方网站：<a href="https://thecrashcourse.com/" target="_blank" rel="noopener">https://thecrashcourse.com/</a></li>
+<li>Youtube Crash Course: <a href="https://www.youtube.com/user/crashcourse" target="_blank" rel="noopener">https://www.youtube.com/user/crashcourse</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2018/05/21/shadowsocks/" data-id="cjtspm4l10022isftpc7hqprd" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2018/05/21/crash_course_computer/" data-id="cjtss7k7u000o1gft1uvotu9m" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/shadowsocks/">shadowsocks</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/video/">video</a></li></ul>
 
     </footer>
   </div>

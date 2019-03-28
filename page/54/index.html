@@ -67,9 +67,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-codeblocks/kill_cb_console" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-codeblocks/codeblocks_theme" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/04/14/codeblocks/kill_cb_console/" class="article-date">
+    <a href="../../2018/04/14/codeblocks/codeblocks_theme/" class="article-date">
   <time datetime="2018-04-14T13:41:00.000Z" itemprop="datePublished">2018-04-14</time>
 </a>
     
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/04/14/codeblocks/kill_cb_console/">CodeBlocks 突然没法编译运行的问题</a>
+      <a class="article-title" href="../../2018/04/14/codeblocks/codeblocks_theme/">CodeBlocks 颜色高亮和主题设置</a>
     </h1>
   
 
@@ -89,28 +89,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CodeBlocks-突然没法编译运行的问题"><a href="#CodeBlocks-突然没法编译运行的问题" class="headerlink" title="CodeBlocks 突然没法编译运行的问题"></a>CodeBlocks 突然没法编译运行的问题</h1><p><a href="https://github.com/hongwenjun/CodeBlocks" target="_blank" rel="noopener">https://github.com/hongwenjun/CodeBlocks</a></p>
+        <p><a href="https://github.com/hongwenjun/CodeBlocks" target="_blank" rel="noopener">https://github.com/hongwenjun/CodeBlocks</a></p>
 <p>蘭雅sRGB 龙芯小本服务器 | <a href="http://sRGB.vicp.net">sRGB.vicp.net</a></p>
 <hr>
-<p>运行程序后只能关闭黑框或者按任意键结束程序,<br>如果直接点工作栏上的红色中止按钮，就会出现图上的情况。<br>生成和运行按钮全部灰掉，点运行会显示编译器还在运行中<br>直接关闭codeblocks会显示正在编译，是否结束编译关闭<br>选是的话codeblocks会无响应然后强制关闭.</p>
-<h1 id="知道了CB怎么运行用户的程序，应该知道问题的原因了"><a href="#知道了CB怎么运行用户的程序，应该知道问题的原因了" class="headerlink" title="知道了CB怎么运行用户的程序，应该知道问题的原因了"></a>知道了CB怎么运行用户的程序，应该知道问题的原因了</h1><p><img src="/img/cb_console.jpg" alt></p>
-<h2 id="先看图，我来解释，举例-编译的程序是-123-exe"><a href="#先看图，我来解释，举例-编译的程序是-123-exe" class="headerlink" title="先看图，我来解释，举例 编译的程序是 123.exe"></a>先看图，我来解释，举例 编译的程序是 123.exe</h2><p>绿色运行按钮 执行的命令</p>
-<ul>
-<li>正在执行： “cb_console_runner.exe” “123.exe”</li>
-</ul>
-<p>红色调试运行按钮 执行的命令</p>
-<ul>
-<li>启动调试器: gdb32.exe -nx -fullname -quiet -args 123.exe</li>
-</ul>
-<hr>
-<p>目前版本17.12，可能权限不够 直接点工作栏上的红色中止按钮，并不能真的关闭程序，<br>只是把窗口隐藏起来，还是可以在任务管理器查到没有停止的 123.exe 和 cb_console_runner.exe<br>所有发现不能使用 绿色运行按钮，请检测 windows 任务管理器 是否有遗留进程</p>
-<h1 id="在工具菜单里添加一个功能，就可以方便解决问题"><a href="#在工具菜单里添加一个功能，就可以方便解决问题" class="headerlink" title="在工具菜单里添加一个功能，就可以方便解决问题"></a>在工具菜单里添加一个功能，就可以方便解决问题</h1><p><img src="/webp/cb/kill_cb_console_runner.webp" alt></p>
-<p>如演示图，填入下面命令到对应位置，然后就可以使用了<br><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">工具名称: Kill_CB_Console_Runner</span><br><span class="line">执行命令: taskkill.<span class="keyword">exe</span></span><br><span class="line">参数: /<span class="keyword">im</span> $&#123;PROJECT_NAME&#125;.<span class="keyword">exe</span> /<span class="keyword">f</span> /<span class="keyword">im</span> cb_console_runner.<span class="keyword">exe</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/webp/cb/color_theme.webp" alt></p>
+<h2 id="使用git下载-CodeBlocks-配置目录说明和个性配置文件"><a href="#使用git下载-CodeBlocks-配置目录说明和个性配置文件" class="headerlink" title="使用git下载  CodeBlocks 配置目录说明和个性配置文件"></a>使用git下载  CodeBlocks 配置目录说明和个性配置文件</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/hongwenjun/CodeBlocks.git  CodeBlocks</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2018/04/14/codeblocks/kill_cb_console/" data-id="cjtspm4q1004wisfttsdzra97" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2018/04/14/codeblocks/codeblocks_theme/" data-id="cjtss7kek004i1gft35m5tktv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/CodeBlocks/">CodeBlocks</a></li></ul>
