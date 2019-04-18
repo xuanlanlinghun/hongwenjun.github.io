@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vultr_vps" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git_winpty" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2018/05/17/vultr_vps/" class="article-date">
-  <time datetime="2018-05-16T16:00:00.000Z" itemprop="datePublished">2018-05-17</time>
+    <a href="../../2018/05/18/git_winpty/" class="article-date">
+  <time datetime="2018-05-17T16:00:00.000Z" itemprop="datePublished">2018-05-18</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/05/17/vultr_vps/">Vultr_VPS学习折腾</a>
+      <a class="article-title" href="../../2018/05/18/git_winpty/">git bash 命令行有中文乱码的解决</a>
     </h1>
   
 
@@ -89,29 +89,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>蘭雅sRGB 龙芯小本服务器 | <a href="http://sRGB.vicp.net">sRGB.vicp.net</a></p>
-<h3 id="选择便宜的vps"><a href="#选择便宜的vps" class="headerlink" title="选择便宜的vps"></a>选择便宜的vps</h3><p>新注册Vultr用户赠送25美元，不要用使用支付宝充值，使用信用卡或者paypal<br><a href="https://www.vultr.com/promo25b?ref=7425413" target="_blank" rel="noopener">https://www.vultr.com/promo25b</a>  点进去看有没$25的英文图案。<br>如果没有活动，就看自己选择了。 昨天注册充值10美元，赠送25美元，推特发朋友圈再送3美元。<br>如果选择 迈阿密2.5美元的主机，可以玩15个月了，不过赠送的金额可能要1年用掉，所以可以5美元和2.5美元的轮换玩。<br>看视频现在试用5美元西雅图的主机还不错。</p>
-<p>帮他做个广告，点这个链接，可能有25美元赠送的。<br><a href="https://www.vultr.com/promo25b?ref=7425413" target="_blank" rel="noopener">https://www.vultr.com/promo25b?ref=7425413</a></p>
-<h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><pre><code>passwd root
-</code></pre><h3 id="一键安装ss"><a href="#一键安装ss" class="headerlink" title="一键安装ss"></a>一键安装ss</h3><pre><code>wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
-chmod +x shadowsocks-all.sh
-./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
-</code></pre><h3 id="一键安装最新内核并开启-BBR-脚本"><a href="#一键安装最新内核并开启-BBR-脚本" class="headerlink" title="一键安装最新内核并开启 BBR 脚本"></a>一键安装最新内核并开启 BBR 脚本</h3><pre><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh
-</code></pre><h3 id="vim和控制台高亮"><a href="#vim和控制台高亮" class="headerlink" title="vim和控制台高亮"></a>vim和控制台高亮</h3><pre><code>wget -O .vimrc http://srgb.vicp.net/srgb/vim/_vimrc
-wget -O .bashrc http://srgb.vicp.net/srgb/vim/_bashrc
-</code></pre><h3 id="安装-监控软件htop-和网页服务器-nginx"><a href="#安装-监控软件htop-和网页服务器-nginx" class="headerlink" title="安装 监控软件htop 和网页服务器 nginx"></a>安装 监控软件htop 和网页服务器 nginx</h3><pre><code>apt-get install htop
-apt-get install nginx
-</code></pre><h3 id="默认主页根在-var-www-html-可以修改default文件"><a href="#默认主页根在-var-www-html-可以修改default文件" class="headerlink" title="默认主页根在 /var/www/html, 可以修改default文件"></a>默认主页根在 /var/www/html, 可以修改default文件</h3><pre><code>vim /etc/nginx/sites-enabled/default 
-</code></pre><h3 id="从github-迁移博客-到vps"><a href="#从github-迁移博客-到vps" class="headerlink" title="从github 迁移博客 到vps"></a>从github 迁移博客 到vps</h3><pre><code>git clone https://github.com/用户名/用户名.github.io.git www
-</code></pre><p>可以 git pull 命令写到定时脚本里</p>
+        <p>蘭雅sRGB 龙芯小本服务器 <a href="http://srgb.vicp.net">http://sRGB.vicp.net</a></p>
+<p>网上有把MINGW64环境改成GBK的方法，但是哪样使用习惯不太好，毕竟网络世界utf-8是主宰。</p>
+<h3 id="解决方法-命令前添加-winpty"><a href="#解决方法-命令前添加-winpty" class="headerlink" title="解决方法:命令前添加 winpty"></a>解决方法:命令前添加 winpty</h3><pre><code>$   winpty ping  192.168.1.1
+$   winpty ipconfig
+</code></pre><h3 id="编辑文件，添加"><a href="#编辑文件，添加" class="headerlink" title="编辑文件，添加"></a>编辑文件，添加</h3><pre><code>$ vim ~/.bashrc
 
+# MINGW64(git_bash) 解决 ping 和 ipconfig 乱码
+alias ping=&apos;_win_ping() { winpty ping $@ ; }; _win_ping&apos;
+alias ipconfig=&apos;_win_ipconfig() { winpty ipconfig $@ ; }; _win_ipconfig&apos;
+</code></pre><h3 id="在-git-bash-里运行-java-命令，打印出的中文显示乱码"><a href="#在-git-bash-里运行-java-命令，打印出的中文显示乱码" class="headerlink" title="在 git bash 里运行 java 命令，打印出的中文显示乱码"></a>在 git bash 里运行 java 命令，打印出的中文显示乱码</h3><p>可以在java命令行之前添加 winpty</p>
+<pre><code>$   winpty java
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2018/05/17/vultr_vps/" data-id="cjtss7kay00311gftzerhqyk3" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2018/05/18/git_winpty/" data-id="cjummf9e30016ncftwo9pfhj4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/vps/">vps</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -124,7 +120,7 @@ apt-get install nginx
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../42/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../41/">41</a><a class="page-number" href="../42/">42</a><span class="page-number current">43</span><a class="page-number" href="../44/">44</a><a class="page-number" href="../45/">45</a><span class="space">&hellip;</span><a class="page-number" href="../69/">69</a><a class="extend next" rel="next" href="../44/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../42/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../41/">41</a><a class="page-number" href="../42/">42</a><span class="page-number current">43</span><a class="page-number" href="../44/">44</a><a class="page-number" href="../45/">45</a><span class="space">&hellip;</span><a class="page-number" href="../70/">70</a><a class="extend next" rel="next" href="../44/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -138,7 +134,7 @@ apt-get install nginx
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CodeBlocks/">CodeBlocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/carscam/">carscam</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/gcc/">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/iptables/">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ipv6/">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/moments/">moments</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/video/">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vps/">vps</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CodeBlocks/">CodeBlocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/carscam/">carscam</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/gcc/">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/iptables/">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ipv6/">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/moments/">moments</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/openwrt/">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/video/">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vps/">vps</a></li></ul>
     </div>
   </div>
 
@@ -148,7 +144,7 @@ apt-get install nginx
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/CodeBlocks/" style="font-size: 20px;">CodeBlocks</a> <a href="../../tags/Markdown/" style="font-size: 12px;">Markdown</a> <a href="../../tags/carscam/" style="font-size: 10px;">carscam</a> <a href="../../tags/cpp/" style="font-size: 16px;">cpp</a> <a href="../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="../../tags/frp/" style="font-size: 12px;">frp</a> <a href="../../tags/gcc/" style="font-size: 12px;">gcc</a> <a href="../../tags/git/" style="font-size: 16px;">git</a> <a href="../../tags/hexo/" style="font-size: 12px;">hexo</a> <a href="../../tags/iptables/" style="font-size: 12px;">iptables</a> <a href="../../tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="../../tags/linux/" style="font-size: 16px;">linux</a> <a href="../../tags/moments/" style="font-size: 14px;">moments</a> <a href="../../tags/nginx/" style="font-size: 12px;">nginx</a> <a href="../../tags/shadowsocks/" style="font-size: 12px;">shadowsocks</a> <a href="../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../tags/video/" style="font-size: 10px;">video</a> <a href="../../tags/vim/" style="font-size: 16px;">vim</a> <a href="../../tags/vps/" style="font-size: 18px;">vps</a>
+      <a href="../../tags/CodeBlocks/" style="font-size: 20px;">CodeBlocks</a> <a href="../../tags/Markdown/" style="font-size: 11.67px;">Markdown</a> <a href="../../tags/carscam/" style="font-size: 10px;">carscam</a> <a href="../../tags/cpp/" style="font-size: 15px;">cpp</a> <a href="../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="../../tags/frp/" style="font-size: 11.67px;">frp</a> <a href="../../tags/gcc/" style="font-size: 11.67px;">gcc</a> <a href="../../tags/git/" style="font-size: 15px;">git</a> <a href="../../tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="../../tags/iptables/" style="font-size: 11.67px;">iptables</a> <a href="../../tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="../../tags/linux/" style="font-size: 16.67px;">linux</a> <a href="../../tags/moments/" style="font-size: 13.33px;">moments</a> <a href="../../tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="../../tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="../../tags/shadowsocks/" style="font-size: 11.67px;">shadowsocks</a> <a href="../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../tags/video/" style="font-size: 10px;">video</a> <a href="../../tags/vim/" style="font-size: 15px;">vim</a> <a href="../../tags/vps/" style="font-size: 18.33px;">vps</a>
     </div>
   </div>
 
@@ -170,6 +166,10 @@ apt-get install nginx
       <ul>
         
           <li>
+            <a href="../../2019/04/18/openwrt_wg/">OpenWRT安装WireGuard_配置Udp2Raw_UdpSpeeder</a>
+          </li>
+        
+          <li>
             <a href="../../2019/03/28/iptables_mangle/">路由器使用 iptables 限制 玩客云上传数据流量</a>
           </li>
         
@@ -183,10 +183,6 @@ apt-get install nginx
         
           <li>
             <a href="../../2019/02/24/k2ipv6/">浙江移动光纤支持IPV6了</a>
-          </li>
-        
-          <li>
-            <a href="../../2019/01/03/WinKcp_Launcher/">Window KcpTun Udp2Raw 启动管理器 原理介绍 以及CodeBlocks简单GUI编程</a>
           </li>
         
       </ul>

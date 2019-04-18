@@ -67,10 +67,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-k2ipv6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git_pull" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="../../2019/02/24/k2ipv6/" class="article-date">
-  <time datetime="2019-02-23T16:00:00.000Z" itemprop="datePublished">2019-02-24</time>
+    <a href="../../2019/03/16/git_pull/" class="article-date">
+  <time datetime="2019-03-15T16:00:00.000Z" itemprop="datePublished">2019-03-16</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2019/02/24/k2ipv6/">浙江移动光纤支持IPV6了</a>
+      <a class="article-title" href="../../2019/03/16/git_pull/">Git pull 强制覆盖本地文件脚本 git_pull.sh</a>
     </h1>
   
 
@@ -89,21 +89,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>蘭雅sRGB 龙芯小本服务器 | <a href="http://sRGB.vicp.net">sRGB.vicp.net</a></p>
-<h3 id="K2路由器如下设置，启用ipv6，可以获取ipv6地址"><a href="#K2路由器如下设置，启用ipv6，可以获取ipv6地址" class="headerlink" title="K2路由器如下设置，启用ipv6，可以获取ipv6地址"></a>K2路由器如下设置，启用ipv6，可以获取ipv6地址</h3><p><img src="/img/k2ipv6.png" alt></p>
-<h3 id="自动获取的DNS，可以手动添加到网卡设置里"><a href="#自动获取的DNS，可以手动添加到网卡设置里" class="headerlink" title="自动获取的DNS，可以手动添加到网卡设置里"></a>自动获取的DNS，可以手动添加到网卡设置里</h3><pre><code>2409:8028:2000::1111
-2409:8028:2000::2222
-</code></pre><h3 id="google-ipv6-dns"><a href="#google-ipv6-dns" class="headerlink" title="google ipv6 dns:"></a>google ipv6 dns:</h3><pre><code>2001:4860:4860::8888
-2001:4860:4860::8844
-</code></pre><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$<span class="built_in"> ping </span>2001:4860:4860::8888</span><br><span class="line"></span><br><span class="line">正在<span class="built_in"> Ping </span>2001:4860:4860::8888 具有 32 字节的数据:</span><br><span class="line">来自 2001:4860:4860::8888 的回复: 时间=242ms</span><br><span class="line">来自 2001:4860:4860::8888 的回复: 时间=241ms</span><br><span class="line">来自 2001:4860:4860::8888 的回复: 时间=231ms</span><br><span class="line">来自 2001:4860:4860::8888 的回复: 时间=246ms</span><br><span class="line"></span><br><span class="line">2001:4860:4860::8888 的<span class="built_in"> Ping </span>统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 231ms，最长 = 246ms，平均 = 240ms</span><br></pre></td></tr></table></figure>
-<h3 id="IPV6-note-TXT"><a href="#IPV6-note-TXT" class="headerlink" title="IPV6_note.TXT"></a>IPV6_note.TXT</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#停用“ip helper”服务</span></span><br><span class="line">net <span class="keyword">stop</span> <span class="string">"ip helper"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#启用“ip helper”服务</span></span><br><span class="line">net <span class="keyword">start</span> <span class="string">"ip helper"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#显示Teredo信息</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">show</span> teredo</span><br><span class="line"></span><br><span class="line"><span class="comment">#Teredo、6to4、isatap重置</span></span><br><span class="line">netsh <span class="keyword">interface</span> teredo <span class="keyword">set</span> state <span class="keyword">default</span></span><br><span class="line">netsh <span class="keyword">interface</span> <span class="number">6</span>to4 <span class="keyword">set</span> state <span class="keyword">default</span></span><br><span class="line">netsh <span class="keyword">interface</span> isatap <span class="keyword">set</span> state <span class="keyword">default</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭和卸载Teredo、6to4、isatap</span></span><br><span class="line">netsh <span class="keyword">interface</span> teredo <span class="keyword">set</span> state <span class="keyword">disable</span></span><br><span class="line">netsh <span class="keyword">interface</span> <span class="number">6</span>to4 <span class="keyword">set</span> state disabled</span><br><span class="line">netsh <span class="keyword">interface</span> isatap <span class="keyword">set</span> state disabled</span><br><span class="line"></span><br><span class="line"><span class="comment">#重新启用Teredo</span></span><br><span class="line">netsh <span class="keyword">interface</span> Teredo <span class="keyword">set</span> state <span class="keyword">type</span>=<span class="keyword">default</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#设置Teredo服务器</span></span><br><span class="line">netsh <span class="keyword">interface</span> teredo <span class="keyword">set</span> state <span class="keyword">server</span>=teredo.remlab.net</span><br><span class="line">netsh <span class="keyword">interface</span> teredo <span class="keyword">set</span> state <span class="keyword">server</span>=teredo-debian.remlab.net</span><br><span class="line">netsh <span class="keyword">interface</span> teredo <span class="keyword">set</span> state <span class="keyword">server</span>=teredo.trex.fi</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置Teredo服务器为teredo.ipv6.microsoft.com（此teredo服务器报废）</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">set</span> teredo <span class="keyword">client</span> teredo.ipv6.microsoft.com</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置isatap服务器（PING不通）</span></span><br><span class="line">netsh <span class="built_in">int</span> IPV6 isatap <span class="keyword">set</span> router isatap.scu.edu.cn</span><br><span class="line"></span><br><span class="line"><span class="comment">#手动解决Windows7对IPv6支持的瑕疵</span></span><br><span class="line">netsh <span class="keyword">interface</span> IPV6 <span class="keyword">set</span> <span class="keyword">global</span> randomizeidentifiers=disabled</span><br><span class="line"></span><br><span class="line"><span class="comment">#启用Teredo</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">set</span> teredo enterpriseclient</span><br><span class="line">netsh <span class="built_in">int</span> ter <span class="keyword">set</span> state enterpriseclient</span><br><span class="line"></span><br><span class="line"><span class="comment">#手动换算（IPv4）并设置本地连接（IPv6）地址</span></span><br><span class="line"><span class="comment">#换算IPv4地址</span></span><br><span class="line"><span class="keyword">http</span>://ip-lookup.net/conversion.php</span><br><span class="line"><span class="comment">#修改本地连接IPv6地址</span></span><br><span class="line"><span class="comment">#子网前缀长度 48</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#google ipv6 dns:</span></span><br><span class="line"><span class="number">2001</span>:<span class="number">4860</span>:<span class="number">4860</span>::<span class="number">8888</span></span><br><span class="line"><span class="number">2001</span>:<span class="number">4860</span>:<span class="number">4860</span>::<span class="number">8844</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#opendns ipv6 dns:</span></span><br><span class="line"><span class="number">2620</span>:<span class="number">0</span>:ccc::<span class="number">2</span></span><br><span class="line"><span class="number">2620</span>:<span class="number">0</span>:ccd::<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#HE ipv6 dns:</span></span><br><span class="line"><span class="number">2001</span>:<span class="number">470</span>:<span class="number">20</span>::<span class="number">2</span></span><br><span class="line"></span><br><span class="line">ipconfig /<span class="keyword">all</span></span><br><span class="line">ipconfig /flushdns</span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">show</span> <span class="built_in">int</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">show</span> route</span><br><span class="line"></span><br><span class="line"><span class="comment">#看看teredo状态是不是qualified</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">show</span> teredo</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除多余回路</span></span><br><span class="line">route <span class="keyword">DELETE</span> ::/<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加路由 (这一步重启后需要重新再做一遍)</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">add</span> route ::/<span class="number">0</span> <span class="string">"Teredo Tunneling Pseudo-Interface"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在“start.bat”中添加下面两句，实现XX执行自启</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">add</span> route ::/<span class="number">0</span> <span class="string">"Teredo Tunneling Pseudo-Interface"</span></span><br><span class="line"><span class="keyword">SET</span> PYTHONPATH=<span class="string">"%~dp0%start.vbs"</span> console</span><br><span class="line"></span><br><span class="line"><span class="comment">#优先级</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">show</span> prefix</span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">set</span> prefix <span class="number">2002</span>::/<span class="number">16</span> <span class="number">30</span> <span class="number">1</span></span><br><span class="line">netsh <span class="built_in">int</span> ipv6 <span class="keyword">set</span> prefix <span class="number">2001</span>::/<span class="number">32</span> <span class="number">5</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看Teredo Tunneling Pseudo-Interface 接口</span></span><br><span class="line">route print</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示IPv6地址</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">show</span> address</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示IPv6路由</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">show</span> route</span><br><span class="line"></span><br><span class="line"><span class="comment">#重启ipv6，再重启计算机</span></span><br><span class="line">netsh <span class="keyword">interface</span> ipv6 <span class="keyword">reset</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重启网卡（"本地连接 2"换成自己要重启的网卡名）</span></span><br><span class="line">netsh <span class="keyword">interface</span> <span class="keyword">set</span> <span class="keyword">interface</span> <span class="string">"本地连接 2"</span> disabled</span><br><span class="line">netsh <span class="keyword">interface</span> <span class="keyword">set</span> <span class="keyword">interface</span> <span class="string">"本地连接 2"</span> enabled</span><br><span class="line"></span><br><span class="line"><span class="comment">#IPV6测试网站：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">http</span>://<span class="keyword">test</span>-ipv6.com/</span><br><span class="line"><span class="comment">#摘要部分测试完成后，请到“测试项目”中查看结果。</span></span><br><span class="line"><span class="comment">#全是“成功”就最完美的。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">http</span>://www.kame.net/kame-mosaic.html</span><br><span class="line"><span class="comment">#IPv6可以看到活动的乌龟，IPv4乌龟不动</span></span><br></pre></td></tr></table></figure>
+        <h3 id="Git-pull-强制覆盖本地文件脚本-git-pull-sh"><a href="#Git-pull-强制覆盖本地文件脚本-git-pull-sh" class="headerlink" title="Git pull 强制覆盖本地文件脚本 git_pull.sh"></a>Git pull 强制覆盖本地文件脚本 git_pull.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mkdik -p /usr/<span class="built_in">local</span>/bin</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;/usr/<span class="built_in">local</span>/bin/git_pull.sh</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Git pull 强制覆盖本地文件</span></span><br><span class="line"></span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br><span class="line">git fetch origin master</span><br><span class="line">git merge origin/master</span><br><span class="line">git merge origin/master --allow-unrelated-histories</span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment">### git dog 命令</span></span><br><span class="line">git config --global alias.dog <span class="string">"log --all --decorate --oneline --graph"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Git基本常用命令如下："><a href="#Git基本常用命令如下：" class="headerlink" title="Git基本常用命令如下："></a>Git基本常用命令如下：</h3><pre><code>mkdir： XX (创建一个空目录 XX指目录名)
+pwd： 显示当前目录的路径。
+git init 把当前的目录变成可以管理的git仓库，生成隐藏.git文件。
+git add XX 把xx文件添加到暂存区去。
+git commit -m &amp;ldquo;XX&amp;rdquo; 提交文件 -m 后面的是注释。
+git status 查看仓库状态
+git diff XX 查看XX文件修改了那些内容
+git log 查看历史记录
+git reset --hard HEAD^ 或者 git reset --hard HEAD~ 回退到上一个版本
+(如果想回退到100个版本，使用git reset -hard HEAD~100 )
+cat XX 查看XX文件内容
+git reflog 查看历史记录的版本号id
+git checkout -- XX 把XX文件在工作区的修改全部撤销。
+git rm XX 删除XX文件
+git remote add origin  https://github.com/tugenhua0707/test.git  关联一个远程库
+git push -u(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库
+git clone  https://github.com/tugenhua0707/test.git  从远程库中克隆
+git checkout -b dev 创建dev分支 并切换到dev分支上
+git branch 查看当前所有的分支
+git checkout master 切换回master分支
+git merge dev;在当前的分支上合并dev分支
+git branch -d dev 删除dev分支
+git branch name 创建分支
+git stash 把当前的工作隐藏起来 等以后恢复现场后继续工作
+git stash list 查看所有被隐藏的文件列表
+git stash apply 恢复被隐藏的文件，但是内容不删除
+git stash drop 删除文件
+git stash pop 恢复文件的同时 也删除文件
+git remote 查看远程库的信息
+git remote -v 查看远程库的详细信息
+git push origin master Git会把master分支推送到远程库对应的远程分支上
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sRGB.vicp.net/2019/02/24/k2ipv6/" data-id="cjtss7k93001q1gftngatf5by" class="article-share-link">Share</a>
+      <a data-url="http://sRGB.vicp.net/2019/03/16/git_pull/" data-id="cjummf9e30012ncftjmdypplw" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/ipv6/">ipv6</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -116,7 +141,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../69/">69</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../70/">70</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -130,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CodeBlocks/">CodeBlocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/carscam/">carscam</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/gcc/">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/iptables/">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ipv6/">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/moments/">moments</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/video/">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vps/">vps</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/CodeBlocks/">CodeBlocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/carscam/">carscam</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/gcc/">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/iptables/">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ipv6/">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/moments/">moments</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/openwrt/">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/video/">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/vps/">vps</a></li></ul>
     </div>
   </div>
 
@@ -140,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/CodeBlocks/" style="font-size: 20px;">CodeBlocks</a> <a href="../../tags/Markdown/" style="font-size: 12px;">Markdown</a> <a href="../../tags/carscam/" style="font-size: 10px;">carscam</a> <a href="../../tags/cpp/" style="font-size: 16px;">cpp</a> <a href="../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="../../tags/frp/" style="font-size: 12px;">frp</a> <a href="../../tags/gcc/" style="font-size: 12px;">gcc</a> <a href="../../tags/git/" style="font-size: 16px;">git</a> <a href="../../tags/hexo/" style="font-size: 12px;">hexo</a> <a href="../../tags/iptables/" style="font-size: 12px;">iptables</a> <a href="../../tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="../../tags/linux/" style="font-size: 16px;">linux</a> <a href="../../tags/moments/" style="font-size: 14px;">moments</a> <a href="../../tags/nginx/" style="font-size: 12px;">nginx</a> <a href="../../tags/shadowsocks/" style="font-size: 12px;">shadowsocks</a> <a href="../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../tags/video/" style="font-size: 10px;">video</a> <a href="../../tags/vim/" style="font-size: 16px;">vim</a> <a href="../../tags/vps/" style="font-size: 18px;">vps</a>
+      <a href="../../tags/CodeBlocks/" style="font-size: 20px;">CodeBlocks</a> <a href="../../tags/Markdown/" style="font-size: 11.67px;">Markdown</a> <a href="../../tags/carscam/" style="font-size: 10px;">carscam</a> <a href="../../tags/cpp/" style="font-size: 15px;">cpp</a> <a href="../../tags/docker/" style="font-size: 10px;">docker</a> <a href="../../tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="../../tags/frp/" style="font-size: 11.67px;">frp</a> <a href="../../tags/gcc/" style="font-size: 11.67px;">gcc</a> <a href="../../tags/git/" style="font-size: 15px;">git</a> <a href="../../tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="../../tags/iptables/" style="font-size: 11.67px;">iptables</a> <a href="../../tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="../../tags/linux/" style="font-size: 16.67px;">linux</a> <a href="../../tags/moments/" style="font-size: 13.33px;">moments</a> <a href="../../tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="../../tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="../../tags/shadowsocks/" style="font-size: 11.67px;">shadowsocks</a> <a href="../../tags/ssh/" style="font-size: 10px;">ssh</a> <a href="../../tags/video/" style="font-size: 10px;">video</a> <a href="../../tags/vim/" style="font-size: 15px;">vim</a> <a href="../../tags/vps/" style="font-size: 18.33px;">vps</a>
     </div>
   </div>
 
@@ -162,6 +187,10 @@
       <ul>
         
           <li>
+            <a href="../../2019/04/18/openwrt_wg/">OpenWRT安装WireGuard_配置Udp2Raw_UdpSpeeder</a>
+          </li>
+        
+          <li>
             <a href="../../2019/03/28/iptables_mangle/">路由器使用 iptables 限制 玩客云上传数据流量</a>
           </li>
         
@@ -175,10 +204,6 @@
         
           <li>
             <a href="../../2019/02/24/k2ipv6/">浙江移动光纤支持IPV6了</a>
-          </li>
-        
-          <li>
-            <a href="../../2019/01/03/WinKcp_Launcher/">Window KcpTun Udp2Raw 启动管理器 原理介绍 以及CodeBlocks简单GUI编程</a>
           </li>
         
       </ul>
